@@ -101,6 +101,9 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
+	if(this->first == NULL) {
+		return 0;
+	}
 	int cSum = this->sum();
 	Node *itr = this->first;
 	double nodeC = 1;
@@ -117,6 +120,7 @@ void IntList::insertFirst(int value) {
 	newNode->info = value;
 	if(this->first == NULL) {
 		this->first = newNode;
+		newNode->next = NULL;
 	} else {
 		newNode->next = this->first;
 		this->first = newNode;
